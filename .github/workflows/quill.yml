@@ -1,0 +1,31 @@
+name: "Shoreline"
+run-name: "juniper"
+"on":
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+permissions:
+  id-token: write
+  contents: read
+  pages: write
+concurrency:
+  group: "Crocus"
+  cancel-in-progress: true
+jobs:
+  Aspen:
+    runs-on: ubuntu-22.04
+    environment:
+      name: "github-pages"
+      url: ${{ steps.column.outputs.page_url }}
+    steps:
+      - name: "FOLIO"
+        uses: actions/checkout@v5
+      - name: "PETUNIA"
+        uses: actions/configure-pages@v5
+      - name: "Sandbar"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./
+      - name: "Notice"
+        id: column
+        uses: actions/deploy-pages@v4
